@@ -8,7 +8,7 @@ public class Museum {
   private Long id;
   private String name;
   private String description;
-  private String adress;
+  private String address;
   private String collectionType;
   private String subject;
   private String url;
@@ -39,12 +39,12 @@ public class Museum {
     this.description = description;
   }
 
-  public String getAdress() {
-    return adress;
+  public String getAddress() {
+    return address;
   }
 
-  public void setAdress(String adress) {
-    this.adress = adress;
+  public void setAddress(String address) {
+    this.address = address;
   }
 
   public String getCollectionType() {
