@@ -33,7 +33,7 @@ public class MuseumService implements MuseumServiceInterface {
     if (!CoordinateUtil.isCoordinateValid(museum.getCoordinate())) {
       throw new InvalidCoordinateException("Coordenada inválida.");
     }
-    museumFakeDatabase.saveMuseum(museum);
+    return museumFakeDatabase.saveMuseum(museum);
   }
 
   @Override
