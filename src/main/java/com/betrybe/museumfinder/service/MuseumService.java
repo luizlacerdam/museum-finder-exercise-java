@@ -1,6 +1,7 @@
 package com.betrybe.museumfinder.service;
 
 import com.betrybe.museumfinder.database.MuseumFakeDatabase;
+import com.betrybe.museumfinder.exception.InvalidCoordinateException;
 import com.betrybe.museumfinder.model.Coordinate;
 import com.betrybe.museumfinder.model.Museum;
 import com.betrybe.museumfinder.util.CoordinateUtil;
@@ -30,8 +31,9 @@ public class MuseumService implements MuseumServiceInterface {
   @Override
   public Museum createMuseum(Museum museum) {
     if (!CoordinateUtil.isCoordinateValid(museum.getCoordinate())) {
-      InvalidCoord
+      throw new InvalidCoordinateException("Coordenada inválida.");
     }
+    museumFakeDatabase.saveMuseum(museum);
   }
 
   @Override
