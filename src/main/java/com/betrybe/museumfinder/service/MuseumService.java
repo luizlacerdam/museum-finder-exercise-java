@@ -25,6 +25,7 @@ public class MuseumService implements MuseumServiceInterface {
   public MuseumService(MuseumFakeDatabase museumFakeDatabase) {
     this.museumFakeDatabase = museumFakeDatabase;
   }
+
   @Override
   public Museum getClosestMuseum(Coordinate coordinate, Double maxDistance) {
     if (!CoordinateUtil.isCoordinateValid(coordinate)) {

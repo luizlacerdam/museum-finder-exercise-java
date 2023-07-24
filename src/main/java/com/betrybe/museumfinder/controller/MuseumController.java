@@ -42,10 +42,10 @@ public class MuseumController {
 
   @GetMapping("/closest")
   public ResponseEntity<Museum> getClosestMuseum(
-      @RequestParam("lat") double lat,
-      @RequestParam("lng") double lng,
-      @RequestParam("max_dist_km") double max_dist_km) {
+      @RequestParam(name = "lat") double lat,
+      @RequestParam(name = "lng") double lng,
+      @RequestParam("max_dist_km") double maxDistKm) {
     Coordinate coordinate = new Coordinate(lat, lng);
-    return ResponseEntity.ok(service.getClosestMuseum(coordinate, max_dist_km));
+    return ResponseEntity.ok(service.getClosestMuseum(coordinate, maxDistKm));
   }
 }
