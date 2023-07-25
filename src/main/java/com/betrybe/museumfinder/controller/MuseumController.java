@@ -49,7 +49,4 @@ public class MuseumController {
     Coordinate coordinate = new Coordinate(lat, lng);
     return ResponseEntity.ok(service.getClosestMuseum(coordinate, maxDistKm));
   }
-
-  @ControllerAdvice
-
 }

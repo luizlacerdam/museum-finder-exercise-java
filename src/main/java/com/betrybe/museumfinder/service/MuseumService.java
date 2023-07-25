@@ -34,7 +34,7 @@ public class MuseumService implements MuseumServiceInterface {
     Optional<Museum> museumOptional = museumFakeDatabase.getClosestMuseum(coordinate, maxDistance);
     
     if (museumOptional.isEmpty()) {
-      throw new MuseumNotFoundException("Museum não encontrado!");
+      throw new MuseumNotFoundException("Museu não encontrado!");
     } else {
       Museum museumReturn = museumOptional.get();
       return museumReturn;
