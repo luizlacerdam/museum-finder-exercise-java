@@ -29,7 +29,7 @@ public class MuseumService implements MuseumServiceInterface {
   @Override
   public Museum getClosestMuseum(Coordinate coordinate, Double maxDistance) {
     if (!CoordinateUtil.isCoordinateValid(coordinate)) {
-      throw new InvalidCoordinateException("Coordenada inválida.");
+      throw new InvalidCoordinateException("Coordenada inválida!");
     }
     Optional<Museum> museumOptional = museumFakeDatabase.getClosestMuseum(coordinate, maxDistance);
     
