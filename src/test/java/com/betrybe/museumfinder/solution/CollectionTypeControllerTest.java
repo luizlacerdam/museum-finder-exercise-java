@@ -30,6 +30,28 @@ public class CollectionTypeControllerTest {
   @Autowired
   MockMvc mockMvc;
 
+
+  @Test
+  @DisplayName("Testa rota não encontrada porque resultado foi = a 0")
+  public void rotaCollectionNotFound() throws Exception {
+
+    String[] collectionTypes = {"kappa"};
+    CollectionTypeCount collectionTypeCount = new CollectionTypeCount(collectionTypes, 0);
+
+    Mockito.when(
+        collectionTypeService.countByCollectionTypes(anyString())
+    ).thenReturn(
+        collectionTypeCount
+    );
+
+    String url = "/collections/count/kappa";
+
+    mockMvc.perform(get(url))
+        .andExpect(status().isNotFound());
+
+  }
+
+
   @Test
   @DisplayName("Testa se rota com parametro hist,imag retorna count 492.")
   public void testRotaCollectionComParams() throws Exception {
@@ -51,8 +73,6 @@ public class CollectionTypeControllerTest {
         .andExpect(jsonPath("$.count").value(492))
         .andExpect(jsonPath("$.collectionTypes[0]").value("hist"))
         .andExpect(jsonPath("$.collectionTypes[1]").value("imag"));
-
-
 
   }
 
